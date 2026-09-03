@@ -122,7 +122,7 @@ const sendMessage = async (question = input) => {
           className="w-full justify-start gap-2 cursor-pointer"
           onClick={() => {
             const link = document.createElement("a");
-            link.href = "/2026-2T26 NOVA.pdf";
+            link.href = "/2026-2T26%20NOVA.pdf";
             link.download = "Reporte-Q2-2026.pdf";
             link.click();
           }}
