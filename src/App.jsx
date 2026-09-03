@@ -13,7 +13,7 @@ function App() {
       id: 1,
       role: "assistant",
       content:
-        "Hola 👋 Soy tu asistente financiero. Puedes preguntarme sobre el reporte del segunto trimestre de la fibra nova 2026.",
+        "Hola 👋 Soy tu asistente financiero. Puedes preguntarme sobre el reporte del segundo trimestre de la fibra Nova 2026.",
     },
   ]);
 
