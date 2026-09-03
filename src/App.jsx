@@ -120,12 +120,10 @@ const sendMessage = async (question = input) => {
         <div className="p-4">
           <Button
           className="w-full justify-start gap-2 cursor-pointer"
-          onClick={() => {
-            const link = document.createElement("a");
-            link.href = "/2026-2T26%20NOVA.pdf";
-            link.download = "Reporte-Q2-2026.pdf";
-            link.click();
-          }}
+           onClick={() => {
+    window.open("/2026-2T26%20NOVA.pdf", "_blank");
+  }}
+
         >
             <FileDown className="h-4 w-4" />
             Reporte Fibra Nova
