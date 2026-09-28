@@ -50,7 +50,7 @@ function App() {
 const [loading, setLoading] = useState(false);
 const sendMessage = async (question = input) => {
   const pregunta = question.trim();
-
+  
   if (!pregunta || loading) return;
 
   // Mostrar la pregunta del usuario
@@ -254,7 +254,7 @@ const sendMessage = async (question = input) => {
 
               <Button
                 size="icon"
-                onClick={sendMessage}
+                onClick={() => sendMessage()}
                 disabled={!input.trim() || loading}
               >
                 {loading ? (
