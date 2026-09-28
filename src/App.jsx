@@ -3,7 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { FileDown, Send, FileText ,Loader2} from "lucide-react";
+import {
+  FileDown,
+  Send,
+  FileText,
+  Loader2,
+  Menu
+} from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -158,12 +171,66 @@ const sendMessage = async (question = input) => {
       {/* Main */}
       <main className="flex min-h-0 min-w-0 flex-1 flex-col">
         {/* Header */}
-        <header className="border-b px-6 py-4">
-          <h1 className="font-semibold">Financial RAG</h1>
-          <p className="text-sm text-muted-foreground">
-            Asistente para análisis de reportes financieros
-          </p>
-        </header>
+        <header className="flex items-center gap-3 border-b px-4 py-4 md:px-6">
+  <Sheet>
+    <SheetTrigger asChild>
+      <Button
+        variant="ghost"
+        size="icon"
+        className="md:hidden"
+      >
+        <Menu className="h-5 w-5" />
+      </Button>
+    </SheetTrigger>
+
+    <SheetContent side="left" className="w-72 px-5 py-6">
+      <SheetHeader>
+        <SheetTitle>Financial RAG</SheetTitle>
+      </SheetHeader>
+
+      <div className="mt-6">
+        <Button
+          className="w-full justify-start gap-2"
+          onClick={() => {
+            window.open("/2026-2T26%20NOVA.pdf", "_blank");
+          }}
+        >
+          <FileDown className="h-4 w-4" />
+          Reporte Fibra Nova
+        </Button>
+
+        <Separator className="my-4" />
+
+        <p className="mb-3 text-xs font-semibold uppercase text-muted-foreground">
+          Preguntas Ejemplo
+        </p>
+
+        <div className="space-y-1">
+          {exampleQuestions.map((item) => (
+            <button
+              key={item.title}
+              type="button"
+              onClick={() => {
+                sendMessage(item.question);
+              }}
+              className="w-full rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-muted"
+            >
+              {item.title}
+            </button>
+          ))}
+        </div>
+      </div>
+    </SheetContent>
+  </Sheet>
+
+  <div>
+    <h1 className="font-semibold">Financial RAG</h1>
+
+    <p className="text-sm text-muted-foreground">
+      Asistente para análisis de reportes financieros
+    </p>
+  </div>
+</header>
 
         {/* Messages */}
        <ScrollArea className="min-h-0 flex-1">
